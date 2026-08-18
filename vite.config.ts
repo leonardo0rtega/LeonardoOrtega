@@ -14,7 +14,7 @@ function htmlMetadata() {
 }
 
 export default defineConfig({
-  base: '/leo-portafolio/',
+  base: '/LeonardoOrtega/',
   build: {
     outDir: 'docs',
   },
