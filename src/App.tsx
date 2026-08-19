@@ -8,7 +8,6 @@ import Skills from './components/Skills'
 import Capabilities from './components/Capabilities'
 import Services from './components/Services'
 import CVSection from './components/CVSection'
-import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollProgress from './components/ScrollProgress'
 
@@ -28,7 +27,6 @@ export default function App() {
         <Capabilities />
         <Services />
         <CVSection />
-        <Contact />
       </main>
       <Footer />
     </div>

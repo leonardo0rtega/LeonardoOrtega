@@ -21,7 +21,6 @@ export default function Navbar() {
     { label: t('nav.capabilities'), href: '#capabilities' },
     { label: t('nav.services'), href: '#services' },
     { label: t('nav.cv'), href: '#cv' },
-    { label: t('nav.contact'), href: '#contact' },
   ]
 
   return (
