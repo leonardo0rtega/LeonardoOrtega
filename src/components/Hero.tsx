@@ -14,10 +14,6 @@ export default function Hero() {
       className="relative min-h-[92vh] overflow-hidden border-b border-[var(--border)] bg-bg px-6 pb-24 pt-32 md:pb-28 md:pt-40"
       aria-label={t('nav.home')}
     >
-      <span className="pointer-events-none absolute -right-10 -top-16 select-none font-mono text-[13rem] font-bold leading-none text-primary/[0.03] sm:text-[18rem] md:-right-16 md:-top-24 md:text-[24rem]">
-        L
-      </span>
-
       <div className="relative mx-auto grid max-w-[1400px] gap-14 lg:grid-cols-[58%_42%] lg:items-center lg:gap-16">
         <div className="z-10 flex flex-col gap-9">
           <span className="inline-flex w-fit items-center gap-2 border border-[var(--border)] bg-surface px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
@@ -26,6 +22,12 @@ export default function Hero() {
           </span>
 
           <div>
+            <motion.div
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="mb-5 h-1.5 w-16 origin-left bg-accent"
+            />
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
