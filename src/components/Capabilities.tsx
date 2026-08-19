@@ -10,7 +10,7 @@ export default function Capabilities() {
   return (
     <section
       id="capabilities"
-      className="relative border-b border-[var(--border)] bg-bg px-6 py-20 md:py-28"
+      className="relative overflow-hidden border-b border-[var(--border)] bg-bg px-6 py-24 md:py-32 lg:py-36"
       aria-labelledby="expertise-title"
     >
       <div className="mx-auto max-w-[1400px]">

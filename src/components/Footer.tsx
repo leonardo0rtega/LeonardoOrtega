@@ -31,10 +31,10 @@ export default function Footer() {
     { label: t('nav.home'), href: '#hero' },
     { label: t('nav.about'), href: '#about' },
     { label: t('nav.skills'), href: '#skills' },
+    { label: t('nav.experience'), href: '#experience' },
     { label: t('nav.capabilities'), href: '#capabilities' },
     { label: t('nav.services'), href: '#services' },
     { label: t('nav.cv'), href: '#cv' },
-    { label: t('nav.contact'), href: `mailto:${contact.email}` },
   ]
   const socials = [
     { id: 'instagram', href: contact.instagram, icon: InstagramIcon, label: 'Instagram' },
@@ -42,19 +42,19 @@ export default function Footer() {
   ].filter((s) => s.href)
 
   return (
-    <footer className="border-t border-[var(--border)] bg-surface px-6 py-10 md:py-12">
+    <footer className="border-t border-[var(--border)] bg-surface px-6 py-20 md:py-28">
       <div className="mx-auto max-w-[1400px]">
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-6">
-            <h2 className="text-3xl font-bold tracking-tight text-primary md:text-4xl">
+            <h2 className="text-4xl font-bold leading-[1.05] tracking-tight text-primary sm:text-5xl md:text-6xl">
               {t('footer.ctaTitle')}
             </h2>
-            <p className="mt-2 max-w-md text-sm leading-relaxed text-secondary">
+            <p className="mt-4 max-w-md text-base leading-relaxed text-secondary">
               {t('footer.ctaDescription')}
             </p>
             <a
               href={`mailto:${contact.email}`}
-              className="mt-6 inline-flex items-center rounded-full border border-[var(--border)] bg-surface px-6 py-2.5 font-mono text-xs font-medium uppercase tracking-widest text-primary transition-all hover:border-accent hover:text-accent"
+              className="group mt-8 inline-flex items-center gap-2 bg-accent px-7 py-3.5 font-mono text-xs font-bold uppercase tracking-widest text-primary transition-transform hover:-translate-y-0.5"
             >
               {t('footer.ctaButton')}
             </a>

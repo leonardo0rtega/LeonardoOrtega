@@ -11,7 +11,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="relative border-b border-[var(--border)] bg-surface px-6 py-20 md:py-28"
+      className="relative overflow-hidden border-b border-[var(--border)] bg-surface px-6 py-24 md:py-32 lg:py-36"
       aria-labelledby="experience-title"
     >
       <div className="mx-auto max-w-[1400px]">

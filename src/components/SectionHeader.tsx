@@ -34,18 +34,23 @@ export default function SectionHeader({
   }
 
   return (
-    <div className="w-full">
+    <div className="relative w-full">
+      <span className="pointer-events-none absolute -left-1 -top-6 select-none font-mono text-[5rem] font-bold leading-none text-primary/[0.04] sm:-top-8 sm:text-[7rem] md:-top-10 md:text-[9rem]">
+        {index}
+      </span>
+
       <motion.div
         variants={fadeUp}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="flex items-center gap-3"
+        className="relative flex items-center gap-3"
       >
-        <span className="border border-accent/40 bg-surface-2 px-2.5 py-1 font-mono text-[11px] font-bold text-accent">
+        <span className="font-mono text-[11px] font-bold tracking-wider text-accent">
           {index}
         </span>
-        <span className="font-mono text-xs uppercase tracking-[0.25em] text-secondary">
+        <span className="h-3 w-px bg-[var(--border)]" />
+        <span className="font-mono text-xs font-semibold uppercase tracking-[0.3em] text-secondary">
           {name}
         </span>
         <motion.span
@@ -65,7 +70,7 @@ export default function SectionHeader({
         whileInView="visible"
         viewport={{ once: true }}
         custom={0.08}
-        className="mt-6 max-w-4xl text-3xl font-bold leading-[1.15] tracking-tight text-primary sm:text-4xl md:text-5xl lg:text-[3.25rem]"
+        className="relative mt-7 max-w-4xl text-4xl font-bold leading-[1.05] tracking-tight text-primary sm:text-5xl md:text-6xl lg:text-[4rem]"
       >
         {renderTitle()}
       </motion.h2>
@@ -77,7 +82,7 @@ export default function SectionHeader({
           whileInView="visible"
           viewport={{ once: true }}
           custom={0.15}
-          className="mt-4 max-w-2xl text-base leading-relaxed text-secondary sm:text-lg"
+          className="relative mt-5 max-w-2xl text-base leading-relaxed text-secondary sm:text-lg"
         >
           {subtitle}
         </motion.p>

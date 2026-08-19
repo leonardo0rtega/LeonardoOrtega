@@ -23,7 +23,7 @@ export default function CVSection() {
   }, [open])
 
   return (
-    <section id="cv" className="relative border-b border-[var(--border)] bg-surface px-6 py-14 md:py-16" aria-labelledby="cv-title">
+    <section id="cv" className="relative overflow-hidden border-b border-[var(--border)] bg-surface px-6 py-20 md:py-24" aria-labelledby="cv-title">
       <div className="mx-auto max-w-[1400px]">
         <SectionHeader micro={t('cv.micro')} title={t('cv.title')} titleId="cv-title" />
 

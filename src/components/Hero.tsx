@@ -11,12 +11,16 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[90vh] overflow-hidden border-b border-[var(--border)] bg-bg px-6 pb-20 pt-28 md:pb-24 md:pt-36"
+      className="relative min-h-[92vh] overflow-hidden border-b border-[var(--border)] bg-bg px-6 pb-24 pt-32 md:pb-28 md:pt-40"
       aria-label={t('nav.home')}
     >
-      <div className="mx-auto grid max-w-[1400px] gap-12 lg:grid-cols-[55%_45%] lg:items-center lg:gap-16">
-        <div className="z-10 flex flex-col gap-8">
-          <span className="inline-flex w-fit items-center gap-2 border border-[var(--border)] bg-surface px-3 py-1 font-mono text-xs uppercase tracking-widest text-secondary">
+      <span className="pointer-events-none absolute -right-10 -top-16 select-none font-mono text-[13rem] font-bold leading-none text-primary/[0.03] sm:text-[18rem] md:-right-16 md:-top-24 md:text-[24rem]">
+        L
+      </span>
+
+      <div className="relative mx-auto grid max-w-[1400px] gap-14 lg:grid-cols-[58%_42%] lg:items-center lg:gap-16">
+        <div className="z-10 flex flex-col gap-9">
+          <span className="inline-flex w-fit items-center gap-2 border border-[var(--border)] bg-surface px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
             <TrendingUp size={14} className="text-accent" />
             {t('hero.micro')}
           </span>
@@ -26,7 +30,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-5xl font-bold leading-[1.05] tracking-tight text-primary md:text-7xl"
+              className="text-5xl font-bold leading-[0.98] tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-[5.5rem]"
             >
               Leonardo Emmanuel
               <br />
@@ -36,7 +40,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-3 max-w-xl text-lg font-semibold leading-snug text-primary sm:text-xl md:text-2xl"
+              className="mt-5 max-w-xl text-xl font-bold leading-snug text-accent sm:text-2xl md:text-[1.75rem]"
             >
               {t('hero.role')}
             </motion.p>
@@ -44,7 +48,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="mt-2 max-w-xl text-xl font-medium leading-snug text-accent-2 md:text-2xl"
+              className="mt-2 max-w-xl text-base font-medium leading-snug text-secondary sm:text-lg"
             >
               {t('hero.h2')}
             </motion.p>
@@ -109,7 +113,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.25 }}
           className="relative z-10 mt-4 flex justify-center lg:mt-0"
         >
-          <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden border border-[var(--border)] bg-surface-2 lg:max-w-[420px]">
+          <div className="relative aspect-[4/5] w-full max-w-[340px] overflow-hidden border border-[var(--border)] bg-surface-2 lg:max-w-[440px]">
             <motion.img
               src={site.photo}
               alt={site.name}

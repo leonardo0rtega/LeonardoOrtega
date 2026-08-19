@@ -13,7 +13,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative border-b border-[var(--border)] bg-bg px-6 py-20 md:py-28"
+      className="relative overflow-hidden border-b border-[var(--border)] bg-bg px-6 py-24 md:py-32 lg:py-36"
       aria-labelledby="about-title"
     >
       <div className="mx-auto max-w-[1400px]">
@@ -31,7 +31,7 @@ export default function About() {
               whileInView="visible"
               viewport={{ once: true }}
               custom={0.15}
-              className="mt-8 max-w-3xl space-y-6 text-base leading-relaxed text-secondary sm:text-lg"
+              className="mt-10 max-w-3xl space-y-6 text-lg leading-relaxed text-secondary sm:text-xl"
             >
               <p>{t('about.p1')}</p>
               <p>{t('about.p2')}</p>
@@ -45,9 +45,9 @@ export default function About() {
               whileInView="visible"
               viewport={{ once: true }}
               custom={0.1}
-              className="h-full border border-[var(--border)] bg-surface p-6 sm:p-8"
+              className="h-full border border-[var(--border)] bg-surface p-8 sm:p-10"
             >
-              <h3 className="font-mono text-sm font-bold uppercase tracking-[0.15em] text-primary">
+              <h3 className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-primary">
                 {t('about.concepts.title')}
               </h3>
               <motion.div
@@ -55,7 +55,7 @@ export default function About() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2"
+                className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2"
               >
                 {conceptKeys.map((key, i) => {
                   const Icon = conceptIcons[i]
@@ -64,10 +64,10 @@ export default function About() {
                       key={key}
                       variants={staggerItem}
                       whileHover={{ y: -3 }}
-                      className="group flex items-start gap-3 border border-[var(--border)] bg-bg p-4 transition-all duration-300 hover:border-accent/70 hover:bg-surface-2"
+                      className="group flex items-start gap-3 border border-[var(--border)] bg-bg p-5 transition-all duration-300 hover:border-accent/70 hover:bg-surface-2"
                     >
-                      <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-[var(--border)] bg-surface text-accent transition-colors group-hover:border-accent/70">
-                        <Icon size={18} />
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-[var(--border)] bg-surface text-accent transition-colors group-hover:border-accent/70">
+                        <Icon size={20} />
                       </div>
                       <div className="min-w-0">
                         <span className="font-mono text-[10px] font-bold text-secondary">0{i + 1}</span>
