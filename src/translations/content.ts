@@ -15,6 +15,7 @@ const es = {
 
   // Hero
   'hero.micro': 'RELACIONES PÚBLICAS / VENTAS / ECOSISTEMA DIGITAL',
+  'hero.role': 'Junior Marketing & PR Specialist',
   'hero.h2': 'Estudiante de Mercadotecnia | Relaciones Públicas, Ventas y Ecosistema Digital',
   'hero.text':
     'Conecto marcas, proyectos y audiencias mediante estrategias de comunicación, relaciones públicas, herramientas digitales y soluciones apoyadas por inteligencia artificial.',
@@ -137,6 +138,7 @@ const en = {
 
   // Hero
   'hero.micro': 'PUBLIC RELATIONS / SALES / DIGITAL ECOSYSTEM',
+  'hero.role': 'Junior Marketing & PR Specialist',
   'hero.h2': 'Marketing Student | Public Relations, Sales and Digital Ecosystem',
   'hero.text':
     'I connect brands, projects and audiences through communication strategies, public relations, digital tools and AI-supported solutions.',

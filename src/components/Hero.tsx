@@ -36,7 +36,15 @@ export default function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-4 max-w-xl text-xl font-medium leading-snug text-accent-2 md:text-2xl"
+              className="mt-3 max-w-xl text-lg font-semibold leading-snug text-primary sm:text-xl md:text-2xl"
+            >
+              {t('hero.role')}
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="mt-2 max-w-xl text-xl font-medium leading-snug text-accent-2 md:text-2xl"
             >
               {t('hero.h2')}
             </motion.p>
