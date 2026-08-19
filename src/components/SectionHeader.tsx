@@ -65,7 +65,7 @@ export default function SectionHeader({
         whileInView="visible"
         viewport={{ once: true }}
         custom={0.08}
-        className="mt-6 max-w-4xl font-display text-3xl font-semibold leading-[1.08] tracking-tight text-primary sm:text-4xl md:text-5xl lg:text-[3.5rem]"
+        className="mt-6 font-display text-3xl font-semibold leading-[1.1] tracking-tight text-primary sm:text-4xl lg:text-[2.75rem]"
       >
         {renderTitle()}
       </motion.h2>
@@ -77,7 +77,7 @@ export default function SectionHeader({
           whileInView="visible"
           viewport={{ once: true }}
           custom={0.15}
-          className="mt-4 max-w-2xl text-base leading-relaxed text-secondary sm:text-lg"
+          className="mt-5 max-w-md text-base leading-relaxed text-secondary"
         >
           {subtitle}
         </motion.p>

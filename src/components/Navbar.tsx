@@ -3,15 +3,38 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import { useApp } from '../context/AppContext.tsx'
 
+const SECTIONS = ['hero', 'about', 'skills', 'experience', 'capabilities', 'services', 'cv']
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [active, setActive] = useState('hero')
   const { t, language, theme, toggleLanguage, toggleTheme } = useApp()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id)
+          }
+        })
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    )
+
+    SECTIONS.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+
+    return () => observer.disconnect()
   }, [])
 
   const links = [
@@ -38,13 +61,24 @@ export default function Navbar() {
         </a>
 
         <ul className="hidden items-center gap-6 text-sm font-medium text-secondary xl:flex">
-          {links.map((link) => (
-            <li key={link.href}>
-              <a href={link.href} className="hover:text-accent transition-colors focus:outline-none focus-visible:text-accent">
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {links.map((link) => {
+            const isActive = active === link.href.slice(1)
+            return (
+              <li key={link.href} className="relative">
+                <a
+                  href={link.href}
+                  className={`transition-colors hover:text-accent ${
+                    isActive ? 'font-semibold text-primary' : 'text-secondary'
+                  }`}
+                >
+                  {link.label}
+                  {isActive && (
+                    <span className="absolute -bottom-1.5 left-0 h-[2px] w-full bg-accent" />
+                  )}
+                </a>
+              </li>
+            )
+          })}
         </ul>
 
         <div className="flex items-center gap-2">
@@ -86,17 +120,22 @@ export default function Navbar() {
             className="border-b border-black/5 dark:border-white/5 bg-surface xl:hidden"
           >
             <ul className="flex flex-col gap-4 px-6 py-6 text-sm text-secondary">
-              {links.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className="block hover:text-accent transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              {links.map((link) => {
+                const isActive = active === link.href.slice(1)
+                return (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className={`block transition-colors hover:text-accent ${
+                        isActive ? 'font-semibold text-primary' : 'text-secondary'
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                )
+              })}
             </ul>
           </motion.div>
         )}
