@@ -28,7 +28,7 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
               className="text-5xl font-bold leading-[1.05] tracking-tight text-primary md:text-7xl"
             >
-              Leonardo Manuel
+              Leonardo Emmanuel
               <br />
               Ortega Nava
             </motion.h1>

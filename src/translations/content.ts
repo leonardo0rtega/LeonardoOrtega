@@ -86,7 +86,7 @@ const es = {
   'cv.button': 'Ver CV',
   'cv.download': 'Descargar',
   'cv.preview': 'Vista previa',
-  'cv.previewAlt': 'Currículum de Leonardo Manuel Ortega Nava',
+  'cv.previewAlt': 'Currículum de Leonardo Emmanuel Ortega Nava',
   'cv.close': 'Cerrar',
 
   // Contact
@@ -101,9 +101,9 @@ const es = {
   'contact.empty': 'Datos de contacto por configurar.',
 
   // Footer
-  'footer.name': 'Leonardo Manuel Ortega Nava',
+  'footer.name': 'Leonardo Emmanuel Ortega Nava',
   'footer.tagline': 'Estudiante de Mercadotecnia | Relaciones Públicas, Ventas y Ecosistema Digital',
-  'footer.copyright': `© ${new Date().getFullYear()} Leonardo Manuel Ortega Nava`,
+  'footer.copyright': `© ${new Date().getFullYear()} Leonardo Emmanuel Ortega Nava`,
   'footer.ctaTitle': '¿Trabajamos juntos?',
   'footer.ctaDescription':
     'Estoy abierto a colaborar en proyectos de comunicación, branding, relaciones públicas y estrategia digital.',
@@ -202,7 +202,7 @@ const en = {
   'cv.button': 'View CV',
   'cv.download': 'Download',
   'cv.preview': 'Preview',
-  'cv.previewAlt': "Curriculum of Leonardo Manuel Ortega Nava",
+  'cv.previewAlt': "Curriculum of Leonardo Emmanuel Ortega Nava",
 
   // Contact
   'contact.micro': '06 / CONTACT',
@@ -216,7 +216,7 @@ const en = {
   'contact.facebookLabel': 'Facebook',
 
   // Footer
-  'footer.name': 'Leonardo Manuel Ortega Nava',
+  'footer.name': 'Leonardo Emmanuel Ortega Nava',
   'footer.tagline': 'Marketing Student | Public Relations, Sales and Digital Ecosystem',
   'footer.ctaTitle': 'Shall we work together?',
   'footer.ctaDescription':
