@@ -33,8 +33,8 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5" aria-label="Navegación principal">
-        <a href="#hero" className="text-2xl font-bold tracking-tight text-primary" aria-label={t('nav.home')}>
-          LEO.
+        <a href="#hero" className="font-display text-2xl font-semibold italic tracking-tight text-primary" aria-label={t('nav.home')}>
+          Leo<span className="text-accent">.</span>
         </a>
 
         <ul className="hidden items-center gap-6 text-sm font-medium text-secondary xl:flex">

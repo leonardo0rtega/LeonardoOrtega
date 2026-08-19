@@ -16,7 +16,7 @@ export const experience = {
     {
       id: 'product-launch',
       number: '01',
-      title: 'PRODUCT LAUNCH',
+      title: 'Product Launch',
       description:
         'Participación integral en la creación de nuevas marcas. Desde la investigación y segmentación del mercado, hasta la arquitectura de la marca y la ejecución de la estrategia comercial para asegurar un posicionamiento exitoso.',
       tags: ['Market Research', 'Brand Architecture', 'Commercial Strategy'],
@@ -24,7 +24,7 @@ export const experience = {
     {
       id: 'social-media',
       number: '02',
-      title: 'SOCIAL MEDIA',
+      title: 'Social Media',
       description:
         'Diseño y gestión de la planificación diaria de contenidos. Estructuré parrillas dinámicas y narrativas continuas para redes sociales, asegurando una presencia digital activa, relevante y enfocada en atraer al público objetivo.',
       tags: ['Content Matrix', 'Brand Narrative', 'Audience Growth'],
@@ -32,7 +32,7 @@ export const experience = {
     {
       id: 'strategy',
       number: '03',
-      title: 'STRATEGY',
+      title: 'Strategy',
       description:
         'Creación de embudos de venta o customer journeys y campañas tácticas. Especialización en redacción de guiones textuales persuasivos y en la integración de herramientas de inteligencia artificial para optimizar tiempos y recursos.',
       tags: ['Customer Journey', 'AI Integration', 'Copywriting'],
@@ -40,7 +40,7 @@ export const experience = {
     {
       id: 'conversion',
       number: '04',
-      title: 'CONVERSION',
+      title: 'Conversion',
       description:
         'En Albeh Global perfeccioné un enfoque orientado a resultados, priorizando la conversión sobre las métricas de vanidad. Esto fortaleció mi capacidad de análisis, gestión de equipos y resolución de problemas dentro de proyectos de alta exigencia.',
       tags: ['Sales Conversion', 'Data Analysis', 'Problem Solving'],

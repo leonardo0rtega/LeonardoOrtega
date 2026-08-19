@@ -32,17 +32,17 @@ export default function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-5xl font-bold leading-[0.98] tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-[5.5rem]"
+              className="font-display text-5xl font-semibold leading-[1.02] tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-[5.25rem]"
             >
               Leonardo Emmanuel
               <br />
-              Ortega Nava
+              <span className="italic text-accent">Ortega Nava</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-5 max-w-xl text-xl font-bold leading-snug text-accent sm:text-2xl md:text-[1.75rem]"
+              className="mt-6 max-w-xl font-mono text-sm font-bold uppercase tracking-[0.25em] text-primary sm:text-base"
             >
               {t('hero.role')}
             </motion.p>

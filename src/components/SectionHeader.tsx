@@ -24,7 +24,7 @@ export default function SectionHeader({
     const parts = title.split(new RegExp(`(${highlightWord})`, 'gi'))
     return parts.map((part, i) =>
       part.toLowerCase() === highlightWord.toLowerCase() ? (
-        <span key={i} className="text-accent underline decoration-accent/30 decoration-2 underline-offset-8">
+        <span key={i} className="font-display italic text-accent">
           {part}
         </span>
       ) : (
@@ -65,7 +65,7 @@ export default function SectionHeader({
         whileInView="visible"
         viewport={{ once: true }}
         custom={0.08}
-        className="mt-6 max-w-4xl text-3xl font-bold leading-[1.1] tracking-tight text-primary sm:text-4xl md:text-5xl lg:text-[3.25rem]"
+        className="mt-6 max-w-4xl font-display text-3xl font-semibold leading-[1.08] tracking-tight text-primary sm:text-4xl md:text-5xl lg:text-[3.5rem]"
       >
         {renderTitle()}
       </motion.h2>

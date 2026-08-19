@@ -52,7 +52,7 @@ export default function Skills() {
                   <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent">
                     {t(`skills.${item.id}.label`)}
                   </span>
-                  <h3 className="mt-2 text-2xl font-bold leading-tight tracking-tight text-primary sm:text-3xl">
+                  <h3 className="mt-2 font-display text-2xl font-semibold leading-tight tracking-tight text-primary sm:text-3xl">
                     {t(`skills.${item.id}.title`)}
                   </h3>
                 </div>

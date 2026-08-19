@@ -33,7 +33,7 @@ export default function Experience() {
           <div className="lg:col-span-5">
             <div className="flex items-center gap-3">
               <BriefcaseBusiness size={22} className="text-accent" />
-              <h3 className="text-2xl font-bold tracking-tight text-primary sm:text-3xl">
+              <h3 className="font-display text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
                 {experience.company}
               </h3>
             </div>
@@ -75,7 +75,7 @@ export default function Experience() {
                   <span className="font-mono text-xs font-bold text-secondary">
                     {item.number}
                   </span>
-                  <h4 className="mt-2 text-xl font-bold uppercase tracking-tight text-primary sm:text-2xl">
+                  <h4 className="mt-2 font-display text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
                     {item.title}
                   </h4>
                   <div className="mt-4 flex flex-wrap gap-x-3 gap-y-2">

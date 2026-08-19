@@ -46,7 +46,7 @@ export default function Footer() {
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           <div className="lg:col-span-6">
-            <h2 className="text-4xl font-bold leading-[1.05] tracking-tight text-primary sm:text-5xl md:text-6xl">
+            <h2 className="font-display text-4xl font-semibold leading-[1.05] tracking-tight text-primary sm:text-5xl md:text-6xl">
               {t('footer.ctaTitle')}
             </h2>
             <p className="mt-4 max-w-md text-base leading-relaxed text-secondary">
@@ -119,8 +119,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 flex flex-col items-start justify-between gap-3 border-t border-[var(--border)] pt-4 md:flex-row md:items-center">
-          <a href="#hero" className="text-xl font-bold tracking-tight text-primary">
-            LEO.
+          <a href="#hero" className="font-display text-xl font-semibold italic tracking-tight text-primary">
+            Leo<span className="text-accent">.</span>
           </a>
           <p className="text-xs text-secondary">{t('footer.copyright')}</p>
           <a

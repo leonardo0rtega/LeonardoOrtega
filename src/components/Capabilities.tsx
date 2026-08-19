@@ -55,7 +55,7 @@ export default function Capabilities() {
                   <span className="font-mono text-xs font-bold text-secondary">{item.number}</span>
                 </div>
 
-                <h3 className="mt-14 text-xl font-bold leading-tight tracking-tight text-primary sm:text-2xl">
+                <h3 className="mt-14 font-display text-xl font-semibold leading-tight tracking-tight text-primary sm:text-2xl">
                   {t(`expertise.${item.id}.title`)}
                 </h3>
 

@@ -49,7 +49,7 @@ export default function Services() {
                     </span>
                   </div>
 
-                  <h3 className="mt-14 text-xl font-bold leading-tight tracking-tight text-primary sm:text-2xl">
+                  <h3 className="mt-14 font-display text-xl font-semibold leading-tight tracking-tight text-primary sm:text-2xl">
                     {service.title}
                   </h3>
 
