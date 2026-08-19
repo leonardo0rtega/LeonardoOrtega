@@ -26,7 +26,7 @@ export default function Capabilities() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+          className="mt-16 grid grid-cols-1 border-l border-t border-[var(--border)] sm:grid-cols-2 lg:grid-cols-3"
         >
           {expertiseItems.map((item) => {
             const Icon = item.icon
@@ -35,36 +35,39 @@ export default function Capabilities() {
               <motion.article
                 key={item.id}
                 variants={staggerItem}
-                whileHover={{ y: -5 }}
-                className={`group relative flex flex-col justify-between overflow-hidden border p-7 sm:p-8 transition-all duration-300 ${
-                  isFeatured
-                    ? 'border-accent/80 bg-surface shadow-lg shadow-accent/5 hover:border-accent'
-                    : 'border-[var(--border)] bg-surface hover:border-accent/60 hover:bg-surface-2 hover:shadow-md'
+                className={`group relative flex flex-col border-b border-r border-[var(--border)] p-8 transition-colors duration-300 sm:p-10 ${
+                  isFeatured ? 'bg-surface' : 'hover:bg-surface'
                 }`}
               >
-                <div>
-                  <div className="flex items-start justify-between border-b border-[var(--border)] pb-4">
-                    <span className="font-mono text-sm font-bold text-accent">{item.number}</span>
-                    {isFeatured && (
-                      <span className="border border-accent/40 bg-accent/10 px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wider text-accent">
-                        {t('expertise.ai.badge')}
-                      </span>
-                    )}
-                  </div>
+                <span
+                  className={`absolute left-0 top-0 h-0.5 bg-accent transition-all duration-500 ease-out ${
+                    isFeatured ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
+                />
 
-                  <div className="mt-6 flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center border border-[var(--border)] bg-bg text-accent transition-transform duration-300 group-hover:scale-110 group-hover:border-accent">
-                      <Icon size={20} />
-                    </div>
-                    <h3 className="text-xl font-bold tracking-tight text-primary sm:text-2xl">
-                      {t(`expertise.${item.id}.title`)}
-                    </h3>
-                  </div>
-
-                  <p className="mt-4 text-sm leading-relaxed text-secondary sm:text-base">
-                    {t(`expertise.${item.id}.desc`)}
-                  </p>
+                <div className="flex items-start justify-between">
+                  <Icon
+                    size={26}
+                    className={`transition-all duration-300 group-hover:scale-110 ${
+                      isFeatured ? 'text-accent' : 'text-primary group-hover:text-accent'
+                    }`}
+                  />
+                  <span className="font-mono text-xs font-bold text-secondary">{item.number}</span>
                 </div>
+
+                <h3 className="mt-14 text-xl font-bold leading-tight tracking-tight text-primary sm:text-2xl">
+                  {t(`expertise.${item.id}.title`)}
+                </h3>
+
+                <p className="mt-3 text-sm leading-relaxed text-secondary sm:text-base">
+                  {t(`expertise.${item.id}.desc`)}
+                </p>
+
+                {isFeatured && (
+                  <span className="mt-5 w-fit font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent">
+                    {t('expertise.ai.badge')}
+                  </span>
+                )}
               </motion.article>
             )
           })}

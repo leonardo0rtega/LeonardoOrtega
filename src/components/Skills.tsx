@@ -26,7 +26,7 @@ export default function Skills() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8"
+          className="mt-16 border-t border-[var(--border)]"
         >
           {skills.map((item) => {
             const Icon = item.icon
@@ -34,31 +34,39 @@ export default function Skills() {
               <motion.article
                 key={item.id}
                 variants={staggerItem}
-                whileHover={{ y: -6 }}
-                className="group relative overflow-hidden border border-[var(--border)] bg-bg p-7 sm:p-8 transition-all duration-300 hover:border-accent/70 hover:bg-surface-2 hover:shadow-lg hover:shadow-accent/5"
+                className="group relative grid grid-cols-1 items-start gap-x-8 gap-y-4 border-b border-[var(--border)] py-8 transition-colors duration-300 hover:bg-bg md:grid-cols-12 md:py-10"
               >
-                <span className="pointer-events-none absolute -right-2 -top-4 font-mono text-7xl font-bold text-accent/5 sm:text-8xl">
-                  {item.number}
-                </span>
+                <span className="pointer-events-none absolute bottom-0 left-0 h-px w-0 bg-accent transition-all duration-500 ease-out group-hover:w-full" />
 
-                <div className="relative z-10 flex items-start justify-between border-b border-[var(--border)] pb-5">
-                  <div className="flex items-baseline gap-3">
-                    <span className="font-mono text-3xl font-bold text-accent">{item.number}</span>
-                    <span className="font-mono text-xs font-bold uppercase tracking-wider text-secondary">
-                      {t(`skills.${item.id}.label`)}
-                    </span>
-                  </div>
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] bg-surface text-accent transition-all duration-300 group-hover:scale-110 group-hover:border-accent/70">
-                    <Icon size={22} />
-                  </div>
+                <div className="flex items-center gap-4 md:col-span-1">
+                  <span className="font-mono text-sm font-bold text-secondary transition-colors duration-300 group-hover:text-accent">
+                    {item.number}
+                  </span>
+                  <Icon
+                    size={18}
+                    className="text-secondary transition-colors duration-300 group-hover:text-accent md:hidden"
+                  />
                 </div>
 
-                <h3 className="relative z-10 mt-6 text-xl font-bold tracking-tight text-primary sm:text-2xl">
-                  {t(`skills.${item.id}.title`)}
-                </h3>
-                <p className="relative z-10 mt-3.5 text-sm leading-relaxed text-secondary sm:text-base">
+                <div className="md:col-span-5">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent">
+                    {t(`skills.${item.id}.label`)}
+                  </span>
+                  <h3 className="mt-2 text-2xl font-bold leading-tight tracking-tight text-primary sm:text-3xl">
+                    {t(`skills.${item.id}.title`)}
+                  </h3>
+                </div>
+
+                <p className="text-base leading-relaxed text-secondary md:col-span-5">
                   {t(`skills.${item.id}.description`)}
                 </p>
+
+                <div className="hidden md:col-span-1 md:flex md:justify-end">
+                  <Icon
+                    size={22}
+                    className="text-secondary/40 transition-all duration-300 group-hover:scale-110 group-hover:text-accent"
+                  />
+                </div>
               </motion.article>
             )
           })}

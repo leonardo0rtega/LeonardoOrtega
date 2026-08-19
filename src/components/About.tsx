@@ -38,47 +38,46 @@ export default function About() {
             </motion.div>
           </div>
 
-          <div className="lg:col-span-5">
-            <motion.div
+          <div className="lg:col-span-5 lg:pl-8">
+            <motion.h3
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               custom={0.1}
-              className="h-full border border-[var(--border)] bg-surface p-8 sm:p-10"
+              className="font-mono text-xs font-bold uppercase tracking-[0.3em] text-secondary"
             >
-              <h3 className="font-mono text-sm font-bold uppercase tracking-[0.2em] text-primary">
-                {t('about.concepts.title')}
-              </h3>
-              <motion.div
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-2"
-              >
-                {conceptKeys.map((key, i) => {
-                  const Icon = conceptIcons[i]
-                  return (
-                    <motion.div
-                      key={key}
-                      variants={staggerItem}
-                      whileHover={{ y: -3 }}
-                      className="group flex items-start gap-3 border border-[var(--border)] bg-bg p-5 transition-all duration-300 hover:border-accent/70 hover:bg-surface-2"
-                    >
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center border border-[var(--border)] bg-surface text-accent transition-colors group-hover:border-accent/70">
-                        <Icon size={20} />
-                      </div>
-                      <div className="min-w-0">
-                        <span className="font-mono text-[10px] font-bold text-secondary">0{i + 1}</span>
-                        <p className="mt-0.5 text-sm font-semibold leading-tight text-primary sm:text-base">
-                          {t(key)}
-                        </p>
-                      </div>
-                    </motion.div>
-                  )
-                })}
-              </motion.div>
+              {t('about.concepts.title')}
+            </motion.h3>
+
+            <motion.div
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              className="mt-8 border-t border-[var(--border)]"
+            >
+              {conceptKeys.map((key, i) => {
+                const Icon = conceptIcons[i]
+                return (
+                  <motion.div
+                    key={key}
+                    variants={staggerItem}
+                    className="group flex items-center gap-5 border-b border-[var(--border)] py-5 transition-colors duration-300"
+                  >
+                    <span className="font-mono text-[10px] font-bold text-secondary transition-colors duration-300 group-hover:text-accent">
+                      0{i + 1}
+                    </span>
+                    <Icon
+                      size={20}
+                      className="shrink-0 text-secondary transition-all duration-300 group-hover:scale-110 group-hover:text-accent"
+                    />
+                    <p className="text-lg font-semibold leading-tight text-primary">
+                      {t(key)}
+                    </p>
+                  </motion.div>
+                )
+              })}
             </motion.div>
           </div>
         </div>

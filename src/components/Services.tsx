@@ -6,8 +6,6 @@ import { staggerContainer, staggerItem } from '../lib/motion'
 
 export default function Services() {
   const { t } = useApp()
-  const featured = services.filter((s) => s.featured)
-  const others = services.filter((s) => !s.featured)
 
   return (
     <section
@@ -23,47 +21,48 @@ export default function Services() {
           titleId="services-title"
         />
 
-        {/* Servicios Principales / Destacados */}
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="mt-12 grid gap-6 lg:grid-cols-2"
+          className="mt-16 grid grid-cols-1 border-l border-t border-[var(--border)] sm:grid-cols-2 lg:grid-cols-3"
         >
-          {featured.map((service) => {
+          {services.map((service) => {
             const Icon = service.icon
             return (
               <motion.article
                 key={service.id}
                 variants={staggerItem}
-                whileHover={{ y: -4 }}
-                className="group relative flex flex-col justify-between border border-[var(--border)] bg-bg p-8 transition-all duration-200 hover:border-accent/70 hover:shadow-lg hover:shadow-accent/5"
+                className="group relative flex flex-col justify-between border-b border-r border-[var(--border)] bg-bg p-8 transition-colors duration-300 hover:bg-surface-2 sm:p-10"
               >
+                <span className="absolute left-0 top-0 h-0.5 w-0 bg-accent transition-all duration-500 ease-out group-hover:w-full" />
+
                 <div>
-                  <div className="flex items-start justify-between border-b border-[var(--border)] pb-4">
-                    <span className="font-mono text-sm font-bold text-accent">
+                  <div className="flex items-start justify-between">
+                    <Icon
+                      size={26}
+                      className="text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-accent"
+                    />
+                    <span className="font-mono text-xs font-bold text-secondary">
                       {service.number}
                     </span>
-                    <div className="flex h-10 w-10 items-center justify-center border border-[var(--border)] bg-surface text-accent transition-transform group-hover:scale-110 group-hover:border-accent">
-                      <Icon size={22} />
-                    </div>
                   </div>
 
-                  <h3 className="mt-6 text-xl font-bold tracking-tight text-primary sm:text-2xl">
+                  <h3 className="mt-14 text-xl font-bold leading-tight tracking-tight text-primary sm:text-2xl">
                     {service.title}
                   </h3>
 
-                  <p className="mt-4 text-base leading-relaxed text-secondary transition-colors group-hover:text-primary">
+                  <p className="mt-3 text-sm leading-relaxed text-secondary sm:text-base">
                     {service.description}
                   </p>
                 </div>
 
-                <div className="mt-8 flex flex-wrap gap-2 border-t border-[var(--border)] pt-4">
+                <div className="mt-8 flex flex-wrap gap-x-3 gap-y-2">
                   {service.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="border border-[var(--border)] bg-surface px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-secondary transition-colors group-hover:border-accent/40 group-hover:text-accent"
+                      className="font-mono text-[10px] font-semibold uppercase tracking-[0.15em] text-secondary/70 transition-colors duration-300 group-hover:text-accent"
                     >
                       {tag}
                     </span>
@@ -72,55 +71,8 @@ export default function Services() {
               </motion.article>
             )
           })}
-        </motion.div>
 
-        {/* Otros Servicios Estratégicos */}
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-4"
-        >
-          {others.map((service) => {
-            const Icon = service.icon
-            return (
-              <motion.article
-                key={service.id}
-                variants={staggerItem}
-                whileHover={{ y: -4 }}
-                className="group relative flex flex-col justify-between border border-[var(--border)] bg-bg p-6 transition-all duration-200 hover:border-accent/70 hover:shadow-lg hover:shadow-accent/5"
-              >
-                <div>
-                  <div className="flex items-center justify-between border-b border-[var(--border)] pb-3">
-                    <span className="font-mono text-xs font-bold text-accent">
-                      {service.number}
-                    </span>
-                    <Icon size={18} className="text-accent transition-transform group-hover:scale-110" />
-                  </div>
-
-                  <h3 className="mt-4 text-lg font-bold text-primary">
-                    {service.title}
-                  </h3>
-
-                  <p className="mt-2.5 text-xs leading-relaxed text-secondary transition-colors group-hover:text-primary sm:text-sm">
-                    {service.description}
-                  </p>
-                </div>
-
-                <div className="mt-6 flex flex-wrap gap-1.5 border-t border-[var(--border)] pt-3">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="border border-[var(--border)] bg-surface px-2 py-0.5 font-mono text-[9px] uppercase tracking-wider text-secondary transition-colors group-hover:border-accent/40 group-hover:text-accent"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </motion.article>
-            )
-          })}
+          <div className="hidden border-b border-r border-[var(--border)] lg:block" />
         </motion.div>
       </div>
     </section>
