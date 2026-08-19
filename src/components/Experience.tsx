@@ -40,7 +40,7 @@ export default function Experience() {
                   {experience.company}
                 </h3>
                 <p className="mt-0.5 text-sm font-semibold text-accent">
-                  {t('experience.role')}
+                  {experience.role}
                 </p>
               </div>
             </div>
@@ -52,7 +52,7 @@ export default function Experience() {
           </div>
 
           <p className="mt-6 max-w-4xl text-base leading-relaxed text-secondary sm:text-lg">
-            {t('experience.intro')}
+            {experience.intro}
           </p>
         </motion.div>
 

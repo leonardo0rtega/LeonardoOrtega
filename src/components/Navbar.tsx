@@ -18,6 +18,7 @@ export default function Navbar() {
     { label: t('nav.home'), href: '#hero' },
     { label: t('nav.about'), href: '#about' },
     { label: t('nav.skills'), href: '#skills' },
+    { label: t('nav.experience'), href: '#experience' },
     { label: t('nav.capabilities'), href: '#capabilities' },
     { label: t('nav.services'), href: '#services' },
     { label: t('nav.cv'), href: '#cv' },

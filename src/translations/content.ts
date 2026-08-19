@@ -3,6 +3,7 @@ const es = {
   'nav.home': 'Inicio',
   'nav.about': 'Perfil',
   'nav.skills': 'Competencias',
+  'nav.experience': 'Experiencia',
   'nav.capabilities': 'Enfoque',
   'nav.services': 'Herramientas',
   'nav.cv': 'CV',
@@ -59,8 +60,12 @@ const es = {
   'skills.multimedia.description':
     'Implementación de herramientas de inteligencia artificial para la optimización de flujos de trabajo en la generación de recursos audiovisuales.',
 
+  // Experience / Experiencia Profesional
+  'experience.micro': '03 / EXPERIENCIA',
+  'experience.title': 'Experiencia Profesional',
+
   // Expertise / Áreas de enfoque
-  'expertise.micro': '03 / ENFOQUE',
+  'expertise.micro': '04 / ENFOQUE',
   'expertise.title': 'Áreas de enfoque',
   'expertise.subtitle': 'Campos en los que estoy desarrollando mi trayectoria profesional.',
   'expertise.public.title': 'Relaciones Públicas',
@@ -76,12 +81,12 @@ const es = {
   'expertise.ai.badge': 'CORE',
 
   // Services / Herramientas
-  'services.micro': '04 / HERRAMIENTAS',
+  'services.micro': '05 / HERRAMIENTAS',
   'services.title': 'Herramientas',
   'services.subtitle': 'Stack tecnológico que uso para ejecutar proyectos y comunicación visual.',
 
   // CV
-  'cv.micro': '05 / CV',
+  'cv.micro': '06 / CV',
   'cv.title': '¿Quieres conocer más de mi trayectoria?',
   'cv.text': 'Consulta mi formación académica y competencias en el documento completo.',
   'cv.button': 'Ver CV',
@@ -128,6 +133,7 @@ const en = {
   'nav.home': 'Home',
   'nav.about': 'Profile',
   'nav.skills': 'Skills',
+  'nav.experience': 'Experience',
   'nav.capabilities': 'Focus',
   'nav.services': 'Tools',
   'nav.cv': 'CV',
@@ -178,8 +184,12 @@ const en = {
   'skills.multimedia.description':
     'Implementation of artificial intelligence tools to optimize workflows in audiovisual resource generation.',
 
+  // Experience
+  'experience.micro': '03 / EXPERIENCE',
+  'experience.title': 'Professional Experience',
+
   // Expertise
-  'expertise.micro': '03 / FOCUS',
+  'expertise.micro': '04 / FOCUS',
   'expertise.title': 'Areas of focus',
   'expertise.subtitle': 'Fields where I am developing my professional career.',
   'expertise.public.title': 'Public Relations',
@@ -194,7 +204,7 @@ const en = {
   'expertise.ai.desc': 'Using AI for prompts, automation and visual resource production.',
 
   // Services
-  'services.micro': '04 / TOOLS',
+  'services.micro': '05 / TOOLS',
   'services.title': 'Tools',
   'services.subtitle': 'Technology stack I use to run projects and visual communication.',
 

@@ -2,10 +2,10 @@ import { motion } from 'framer-motion'
 import { useApp } from '../context/AppContext.tsx'
 import SectionHeader from './SectionHeader'
 import { fadeUp, staggerContainer, staggerItem } from '../lib/motion'
-import { Users, TrendingUp, Fingerprint, Monitor, BrainCircuit } from 'lucide-react'
+import { Handshake, TrendingUp, Fingerprint, Globe, BrainCircuit } from 'lucide-react'
 
 const conceptKeys = ['about.concept1', 'about.concept2', 'about.concept3', 'about.concept4', 'about.concept5']
-const conceptIcons = [Users, TrendingUp, Fingerprint, Monitor, BrainCircuit]
+const conceptIcons = [Handshake, TrendingUp, Fingerprint, Globe, BrainCircuit]
 
 export default function About() {
   const { t } = useApp()
