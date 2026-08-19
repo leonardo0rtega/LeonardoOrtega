@@ -1,10 +1,9 @@
 import {
   BrainCircuit,
+  BriefcaseBusiness,
   Fingerprint,
-  Search,
-  Target,
-  TrendingUp,
-  Workflow,
+  Handshake,
+  Share2,
   type LucideIcon,
 } from 'lucide-react'
 
@@ -16,10 +15,9 @@ export interface ExpertiseItem {
 }
 
 export const expertiseItems: ExpertiseItem[] = [
-  { id: 'item1', number: '01', icon: Target },
-  { id: 'item2', number: '02', icon: Search },
-  { id: 'item3', number: '03', icon: Fingerprint },
-  { id: 'item4', number: '04', icon: Workflow },
-  { id: 'item5', number: '05', icon: BrainCircuit },
-  { id: 'item6', number: '06', icon: TrendingUp, featured: true },
+  { id: 'public', number: '01', icon: Handshake },
+  { id: 'sales', number: '02', icon: BriefcaseBusiness },
+  { id: 'branding', number: '03', icon: Fingerprint },
+  { id: 'digital', number: '04', icon: Share2 },
+  { id: 'ai', number: '05', icon: BrainCircuit, featured: true },
 ]

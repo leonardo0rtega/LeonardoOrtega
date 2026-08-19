@@ -1,26 +1,50 @@
-import { Github, Linkedin } from 'lucide-react'
 import { contact } from '../data/contact.ts'
 import { useApp } from '../context/AppContext.tsx'
+
+const InstagramIcon = ({ size = 18, className }: { size?: number; className?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+)
+
+const FacebookIcon = ({ size = 18, className }: { size?: number; className?: string }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+  </svg>
+)
 
 export default function Footer() {
   const { t } = useApp()
   const navLinks = [
     { label: t('nav.home'), href: '#hero' },
     { label: t('nav.about'), href: '#about' },
+    { label: t('nav.skills'), href: '#skills' },
+    { label: t('nav.capabilities'), href: '#capabilities' },
     { label: t('nav.services'), href: '#services' },
-    { label: t('nav.experience'), href: '#experience' },
+    { label: t('nav.cv'), href: '#cv' },
     { label: t('nav.contact'), href: `mailto:${contact.email}` },
   ]
   const socials = [
-    { id: 'github', icon: Github, href: contact.github, label: 'GitHub' },
-    { id: 'linkedin', icon: Linkedin, href: contact.linkedin, label: 'LinkedIn' },
+    { id: 'instagram', href: contact.instagram, icon: InstagramIcon, label: 'Instagram' },
+    { id: 'facebook', href: contact.facebook, icon: FacebookIcon, label: 'Facebook' },
   ].filter((s) => s.href)
 
   return (
     <footer className="border-t border-[var(--border)] bg-surface px-6 py-10 md:py-12">
       <div className="mx-auto max-w-[1400px]">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-12">
-          {/* CTA */}
           <div className="lg:col-span-6">
             <h2 className="text-3xl font-bold tracking-tight text-primary md:text-4xl">
               {t('footer.ctaTitle')}
@@ -37,7 +61,6 @@ export default function Footer() {
           </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:col-span-6">
-            {/* Navigation */}
             <div>
               <h3 className="text-xs font-mono font-bold uppercase tracking-[0.15em] text-secondary">
                 {t('footer.navLabel')}
@@ -56,7 +79,6 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Contact / Social */}
             <div>
               <h3 className="text-xs font-mono font-bold uppercase tracking-[0.15em] text-secondary">
                 {t('footer.emailLabel')}
@@ -83,7 +105,7 @@ export default function Footer() {
                           target="_blank"
                           rel="noopener noreferrer"
                           aria-label={s.label}
-                          className="flex h-8 w-8 items-center justify-center rounded-full border border-[var(--border)] text-secondary transition-all hover:border-accent hover:text-accent"
+                          className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] text-secondary transition-all hover:border-accent hover:text-accent"
                         >
                           <Icon size={18} />
                         </a>

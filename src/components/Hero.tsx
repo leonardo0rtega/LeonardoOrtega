@@ -1,14 +1,8 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, TrendingUp, Target, Palette, FolderKanban } from 'lucide-react'
+import { ArrowRight, TrendingUp, Target, Palette, BrainCircuit } from 'lucide-react'
 import { useApp } from '../context/AppContext.tsx'
 import { site } from '../config/site'
 
-const specs = [
-  { key: 'hero.spec.role', value: 'hero.spec.roleValue' },
-  { key: 'hero.spec.focus', value: 'hero.spec.focusValue' },
-  { key: 'hero.spec.location', value: 'hero.spec.locationValue' },
-  { key: 'hero.spec.status', value: 'hero.spec.statusValue' },
-]
 
 export default function Hero() {
   const { t } = useApp()
@@ -34,7 +28,7 @@ export default function Hero() {
               transition={{ duration: 0.6 }}
               className="text-5xl font-bold leading-[1.05] tracking-tight text-primary md:text-7xl"
             >
-              Leonardo Emmauel
+              Leonardo Manuel
               <br />
               Ortega Nava
             </motion.h1>
@@ -42,10 +36,9 @@ export default function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-4 text-xl font-medium text-accent-2 md:text-2xl"
+              className="mt-4 max-w-xl text-xl font-medium leading-snug text-accent-2 md:text-2xl"
             >
-              {t('hero.h2').split(' y ')[0]}
-              <br className="md:hidden" /> y {t('hero.h2').split(' y ')[1]}
+              {t('hero.h2')}
             </motion.p>
           </div>
 
@@ -74,10 +67,10 @@ export default function Hero() {
               <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
             </a>
             <a
-              href="#services"
+              href="#contact"
               className="inline-flex items-center gap-2 border border-[var(--border)] bg-surface px-6 py-3 text-sm font-medium text-primary transition-colors hover:border-accent hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-2"
             >
-              {t('hero.cta.services')}
+              {t('hero.cta.contact')}
             </a>
           </motion.div>
 
@@ -85,17 +78,51 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-wrap gap-2 pt-2"
+            className="flex flex-wrap items-center gap-4 pt-1"
+          >
+            <a
+              href="https://www.instagram.com/leonxrdoxx"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="group inline-flex items-center gap-2 border border-[var(--border)] bg-surface px-4 py-2 text-sm text-secondary transition-all hover:border-accent hover:text-accent"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform group-hover:scale-110">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+              <span className="font-mono text-xs uppercase tracking-wider">@leonxrdoxx</span>
+            </a>
+            <a
+              href="https://www.facebook.com/leo.107514"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="group inline-flex items-center gap-2 border border-[var(--border)] bg-surface px-4 py-2 text-sm text-secondary transition-all hover:border-accent hover:text-accent"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="transition-transform group-hover:scale-110">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+              </svg>
+              <span className="font-mono text-xs uppercase tracking-wider">Facebook</span>
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.55 }}
+            className="flex flex-wrap gap-2 pt-1"
           >
             {tags.map((tag) => (
               <span
                 key={tag}
                 className="inline-flex items-center gap-1 border border-[var(--border)] bg-surface px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-secondary"
               >
-                {tag === 'ESTRATEGIA' && <Target size={12} className="text-accent" />}
-                {tag === 'CONVERSION' && <TrendingUp size={12} className="text-accent" />}
+                {tag === 'RELACIONES PÚBLICAS' && <Target size={12} className="text-accent" />}
+                {tag === 'VENTAS' && <TrendingUp size={12} className="text-accent" />}
                 {tag === 'BRANDING' && <Palette size={12} className="text-accent" />}
-                {tag === 'PROJECT MANAGEMENT' && <FolderKanban size={12} className="text-accent" />}
+                {tag === 'IA' && <BrainCircuit size={12} className="text-accent" />}
                 {tag}
               </span>
             ))}
@@ -137,31 +164,6 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
-
-      <motion.dl
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.6 }}
-        className="mx-auto mt-14 grid max-w-[1400px] grid-cols-2 border border-[var(--border)] bg-surface md:grid-cols-4"
-      >
-        {specs.map((spec, i) => (
-          <div
-            key={spec.key}
-            className={`border-[var(--border)] px-5 py-5 ${
-              i < 2 ? 'border-b md:border-b-0' : ''
-            } ${i % 2 === 0 ? 'border-r' : ''} ${
-              i < specs.length - 1 ? 'md:border-r' : 'md:border-r-0'
-            }`}
-          >
-            <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-secondary">
-              {t(spec.key)}
-            </dt>
-            <dd className="mt-2 font-mono text-sm font-semibold text-primary">
-              {t(spec.value)}
-            </dd>
-          </div>
-        ))}
-      </motion.dl>
 
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-[var(--border)]" />
     </section>

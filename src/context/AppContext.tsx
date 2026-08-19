@@ -13,7 +13,7 @@ interface AppContextValue {
 
 const AppContext = createContext<AppContextValue | null>(null)
 
-import { translations } from '../translations'
+import { translations } from '../translations/content'
 
 const STORAGE_KEY = 'leo-theme'
 

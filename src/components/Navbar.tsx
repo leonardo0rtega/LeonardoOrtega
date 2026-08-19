@@ -17,9 +17,10 @@ export default function Navbar() {
   const links = [
     { label: t('nav.home'), href: '#hero' },
     { label: t('nav.about'), href: '#about' },
+    { label: t('nav.skills'), href: '#skills' },
+    { label: t('nav.capabilities'), href: '#capabilities' },
     { label: t('nav.services'), href: '#services' },
-    { label: t('nav.experience'), href: '#experience' },
-    { label: t('nav.workflow'), href: '#workflow' },
+    { label: t('nav.cv'), href: '#cv' },
     { label: t('nav.contact'), href: '#contact' },
   ]
 
@@ -36,7 +37,7 @@ export default function Navbar() {
           LEO.
         </a>
 
-        <ul className="hidden items-center gap-8 text-sm font-medium text-secondary lg:flex">
+        <ul className="hidden items-center gap-6 text-sm font-medium text-secondary xl:flex">
           {links.map((link) => (
             <li key={link.href}>
               <a href={link.href} className="hover:text-accent transition-colors focus:outline-none focus-visible:text-accent">
@@ -66,7 +67,7 @@ export default function Navbar() {
           </button>
 
           <button
-            className="ml-1 text-primary lg:hidden"
+            className="ml-1 text-primary xl:hidden"
             onClick={() => setMobileOpen((v) => !v)}
             aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={mobileOpen}
@@ -82,7 +83,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="border-b border-black/5 dark:border-white/5 bg-surface lg:hidden"
+            className="border-b border-black/5 dark:border-white/5 bg-surface xl:hidden"
           >
             <ul className="flex flex-col gap-4 px-6 py-6 text-sm text-secondary">
               {links.map((link) => (
