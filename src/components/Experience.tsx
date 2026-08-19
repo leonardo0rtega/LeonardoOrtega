@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { BriefcaseBusiness, Calendar } from 'lucide-react'
+import { BriefcaseBusiness } from 'lucide-react'
 import { experience } from '../data/experience'
 import { useApp } from '../context/AppContext.tsx'
 import SectionHeader from './SectionHeader'
@@ -21,36 +21,44 @@ export default function Experience() {
           titleId="experience-title"
         />
 
-        {/* Encabezado de la empresa */}
+        {/* Masthead de la empresa */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           custom={0.15}
-          className="mt-16 grid grid-cols-1 gap-8 border-t border-[var(--border)] pt-10 lg:grid-cols-12 lg:gap-12"
+          className="mt-16"
         >
-          <div className="lg:col-span-5">
-            <div className="flex items-center gap-3">
-              <BriefcaseBusiness size={22} className="text-accent" />
-              <h3 className="font-display text-2xl font-semibold tracking-tight text-primary sm:text-3xl">
+          <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-6 border-b border-[var(--border)] pb-8">
+            <div>
+              <div className="flex items-center gap-2.5">
+                <BriefcaseBusiness size={16} className="text-accent" />
+                <span className="font-mono text-[11px] font-bold uppercase tracking-[0.25em] text-secondary">
+                  {experience.period}
+                </span>
+              </div>
+
+              <h3 className="mt-4 font-display text-4xl font-semibold leading-[1.05] tracking-tight text-primary sm:text-5xl md:text-6xl">
                 {experience.company}
               </h3>
             </div>
-            <p className="mt-3 text-base font-semibold text-accent">{experience.role}</p>
-            <div className="mt-4 flex items-center gap-2 font-mono text-xs text-secondary">
-              <Calendar size={14} className="text-accent" />
-              <span>{experience.period}</span>
+
+            <div className="flex items-center gap-3 pb-1">
+              <span className="hidden h-px w-10 bg-accent sm:block" />
+              <p className="max-w-xs font-mono text-xs font-semibold uppercase leading-relaxed tracking-[0.15em] text-accent">
+                {experience.role}
+              </p>
             </div>
           </div>
 
-          <p className="text-lg leading-relaxed text-secondary lg:col-span-7">
+          <p className="mt-10 max-w-4xl text-xl leading-relaxed text-secondary sm:text-2xl sm:leading-relaxed">
             {experience.intro}
           </p>
         </motion.div>
 
         {/* Fases con regla vertical continua */}
-        <div className="relative mt-16 border-l border-[var(--border)] pl-8 sm:pl-12">
+        <div className="relative mt-20 border-l border-[var(--border)] pl-8 sm:pl-12 md:mt-24">
           <motion.div
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
