@@ -2,8 +2,10 @@ import { motion } from 'framer-motion'
 import { useApp } from '../context/AppContext.tsx'
 import SectionHeader from './SectionHeader'
 import { fadeUp, staggerContainer, staggerItem } from '../lib/motion'
+import { Users, TrendingUp, Fingerprint, Monitor, BrainCircuit } from 'lucide-react'
 
 const conceptKeys = ['about.concept1', 'about.concept2', 'about.concept3', 'about.concept4', 'about.concept5']
+const conceptIcons = [Users, TrendingUp, Fingerprint, Monitor, BrainCircuit]
 
 export default function About() {
   const { t } = useApp()
@@ -15,8 +17,8 @@ export default function About() {
       aria-labelledby="about-title"
     >
       <div className="mx-auto max-w-[1400px]">
-        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
-          <div>
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-12">
+          <div className="lg:col-span-7">
             <SectionHeader
               micro={t('about.micro')}
               title={t('about.title')}
@@ -29,42 +31,54 @@ export default function About() {
               whileInView="visible"
               viewport={{ once: true }}
               custom={0.15}
-              className="mt-8 space-y-5 border-l-2 border-accent/40 pl-6 text-base leading-relaxed text-secondary sm:text-lg"
+              className="mt-8 max-w-3xl space-y-6 text-base leading-relaxed text-secondary sm:text-lg"
             >
               <p>{t('about.p1')}</p>
               <p>{t('about.p2')}</p>
             </motion.div>
           </div>
 
-          <div>
-            <motion.h3
+          <div className="lg:col-span-5">
+            <motion.div
               variants={fadeUp}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
               custom={0.1}
-              className="font-mono text-sm font-bold uppercase tracking-[0.15em] text-primary"
+              className="h-full border border-[var(--border)] bg-surface p-6 sm:p-8"
             >
-              {t('about.concepts.title')}
-            </motion.h3>
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              className="mt-6 flex flex-wrap gap-3"
-            >
-              {conceptKeys.map((key, i) => (
-                <motion.span
-                  key={key}
-                  variants={staggerItem}
-                  whileHover={{ y: -3, scale: 1.02 }}
-                  className="group inline-flex items-center gap-2 border border-[var(--border)] bg-surface px-4 py-2.5 font-mono text-xs uppercase tracking-wider text-secondary transition-all hover:border-accent hover:bg-surface-2 hover:text-primary"
-                >
-                  <span className="font-bold text-accent">0{i + 1}</span>
-                  {t(key)}
-                </motion.span>
-              ))}
+              <h3 className="font-mono text-sm font-bold uppercase tracking-[0.15em] text-primary">
+                {t('about.concepts.title')}
+              </h3>
+              <motion.div
+                variants={staggerContainer}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2"
+              >
+                {conceptKeys.map((key, i) => {
+                  const Icon = conceptIcons[i]
+                  return (
+                    <motion.div
+                      key={key}
+                      variants={staggerItem}
+                      whileHover={{ y: -3 }}
+                      className="group flex items-start gap-3 border border-[var(--border)] bg-bg p-4 transition-all duration-300 hover:border-accent/70 hover:bg-surface-2"
+                    >
+                      <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-[var(--border)] bg-surface text-accent transition-colors group-hover:border-accent/70">
+                        <Icon size={18} />
+                      </div>
+                      <div className="min-w-0">
+                        <span className="font-mono text-[10px] font-bold text-secondary">0{i + 1}</span>
+                        <p className="mt-0.5 text-sm font-semibold leading-tight text-primary sm:text-base">
+                          {t(key)}
+                        </p>
+                      </div>
+                    </motion.div>
+                  )
+                })}
+              </motion.div>
             </motion.div>
           </div>
         </div>

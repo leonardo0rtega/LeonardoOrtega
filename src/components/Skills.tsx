@@ -34,29 +34,31 @@ export default function Skills() {
               <motion.article
                 key={item.id}
                 variants={staggerItem}
-                whileHover={{ y: -5 }}
-                className="group relative flex flex-col justify-between overflow-hidden border border-[var(--border)] bg-bg p-7 sm:p-8 transition-all duration-300 hover:border-accent/70 hover:bg-surface-2 hover:shadow-lg hover:shadow-accent/5"
+                whileHover={{ y: -6 }}
+                className="group relative overflow-hidden border border-[var(--border)] bg-bg p-7 sm:p-8 transition-all duration-300 hover:border-accent/70 hover:bg-surface-2 hover:shadow-lg hover:shadow-accent/5"
               >
-                <div>
-                  <div className="flex items-start justify-between border-b border-[var(--border)] pb-4">
-                    <div className="flex items-center gap-3">
-                      <span className="font-mono text-2xl font-bold text-accent">{item.number}</span>
-                      <span className="font-mono text-xs uppercase tracking-wider text-secondary">
-                        {t(`skills.${item.id}.label`)}
-                      </span>
-                    </div>
-                    <div className="flex h-10 w-10 items-center justify-center border border-[var(--border)] bg-surface text-accent transition-transform duration-300 group-hover:scale-110 group-hover:border-accent">
-                      <Icon size={20} />
-                    </div>
-                  </div>
+                <span className="pointer-events-none absolute -right-2 -top-4 font-mono text-7xl font-bold text-accent/5 sm:text-8xl">
+                  {item.number}
+                </span>
 
-                  <h3 className="mt-6 text-xl font-bold tracking-tight text-primary sm:text-2xl">
-                    {t(`skills.${item.id}.title`)}
-                  </h3>
-                  <p className="mt-3.5 text-sm leading-relaxed text-secondary sm:text-base">
-                    {t(`skills.${item.id}.description`)}
-                  </p>
+                <div className="relative z-10 flex items-start justify-between border-b border-[var(--border)] pb-5">
+                  <div className="flex items-baseline gap-3">
+                    <span className="font-mono text-3xl font-bold text-accent">{item.number}</span>
+                    <span className="font-mono text-xs font-bold uppercase tracking-wider text-secondary">
+                      {t(`skills.${item.id}.label`)}
+                    </span>
+                  </div>
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] bg-surface text-accent transition-all duration-300 group-hover:scale-110 group-hover:border-accent/70">
+                    <Icon size={22} />
+                  </div>
                 </div>
+
+                <h3 className="relative z-10 mt-6 text-xl font-bold tracking-tight text-primary sm:text-2xl">
+                  {t(`skills.${item.id}.title`)}
+                </h3>
+                <p className="relative z-10 mt-3.5 text-sm leading-relaxed text-secondary sm:text-base">
+                  {t(`skills.${item.id}.description`)}
+                </p>
               </motion.article>
             )
           })}
