@@ -13,10 +13,10 @@ function htmlMetadata() {
   }
 }
 
-export default defineConfig({
-  base: '/LeonardoOrtega/',
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/LeonardoOrtega/' : '/',
   build: {
     outDir: 'docs',
   },
   plugins: [react(), htmlMetadata()],
-})
+}))
