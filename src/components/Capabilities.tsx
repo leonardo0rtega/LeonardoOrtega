@@ -10,6 +10,7 @@ export default function Capabilities() {
   return (
     <SectionShell
       id="capabilities"
+      tone="surface"
       micro={t('expertise.micro')}
       title={t('expertise.title')}
       subtitle={t('expertise.subtitle')}
@@ -20,17 +21,20 @@ export default function Capabilities() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid grid-cols-1 border-l border-t border-[var(--border)] sm:grid-cols-2"
+        className="grid grid-cols-1 border-l border-t border-[var(--border)] sm:grid-cols-2 lg:grid-cols-6"
       >
-        {expertiseItems.map((item) => {
+        {expertiseItems.map((item, i) => {
           const Icon = item.icon
           const isFeatured = item.featured
+          // Primera fila: 01-02-03 (2 columnas cada una). Segunda fila: 04-05 (3 columnas cada una).
+          const spanClass = i < 3 ? 'lg:col-span-2' : 'lg:col-span-3'
+
           return (
             <motion.article
               key={item.id}
               variants={staggerItem}
-              className={`group relative flex flex-col border-b border-r border-[var(--border)] p-8 transition-colors duration-300 sm:p-10 ${
-                isFeatured ? 'bg-surface' : 'hover:bg-surface'
+              className={`group relative flex flex-col border-b border-r border-[var(--border)] p-6 transition-colors duration-300 sm:p-7 ${spanClass} ${
+                isFeatured ? 'bg-bg' : 'hover:bg-bg'
               }`}
             >
               <span
@@ -39,34 +43,38 @@ export default function Capabilities() {
                 }`}
               />
 
-              <div className="flex items-start justify-between">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-[11px] font-bold text-accent">{item.number}</span>
+                <span className="h-px w-5 bg-[var(--border)] transition-all duration-500 ease-out group-hover:w-8 group-hover:bg-accent" />
                 <Icon
-                  size={26}
-                  className={`transition-all duration-300 group-hover:scale-110 ${
+                  size={20}
+                  className={`ml-auto shrink-0 transition-all duration-300 group-hover:scale-110 ${
                     isFeatured ? 'text-accent' : 'text-primary group-hover:text-accent'
                   }`}
                 />
-                <span className="font-mono text-xs font-bold text-secondary">{item.number}</span>
               </div>
 
-              <h3 className="mt-12 font-display text-xl font-semibold leading-tight tracking-tight text-primary sm:text-2xl">
+              <h3 className="mt-5 font-display text-lg font-semibold leading-tight tracking-tight text-primary sm:text-xl">
                 {t(`expertise.${item.id}.title`)}
               </h3>
 
-              <p className="mt-3 text-sm leading-relaxed text-secondary sm:text-base">
+              <p className="mt-2 text-sm leading-relaxed text-secondary sm:text-[15px]">
                 {t(`expertise.${item.id}.desc`)}
               </p>
 
               {isFeatured && (
-                <span className="mt-5 w-fit font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent">
-                  {t('expertise.ai.badge')}
-                </span>
+                <div className="mt-auto pt-5">
+                  <span className="inline-block border border-accent/40 px-2 py-1 font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-accent">
+                    {t('expertise.ai.badge')}
+                  </span>
+                </div>
               )}
             </motion.article>
           )
         })}
 
-        <div className="hidden border-b border-r border-[var(--border)] sm:block" />
+        {/* Celda de relleno para cerrar la retícula en 2 columnas */}
+        <div className="hidden border-b border-r border-[var(--border)] sm:block lg:hidden" />
       </motion.div>
     </SectionShell>
   )

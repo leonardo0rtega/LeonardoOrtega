@@ -7,6 +7,7 @@ const es = {
   'nav.capabilities': 'Enfoque',
   'nav.services': 'Herramientas',
   'nav.cv': 'CV',
+  'nav.faq': 'FAQ',
   'nav.contact': 'Contacto',
   'nav.available': 'DISPONIBLE PARA PROYECTOS',
   'nav.theme': 'Tema',
@@ -95,10 +96,28 @@ const es = {
   'cv.previewAlt': 'Currículum de Leonardo Emmanuel Ortega Nava',
   'cv.close': 'Cerrar',
 
+  // FAQ
+  'faq.micro': '07 / FAQ',
+  'faq.title': 'Preguntas Frecuentes',
+  'faq.subtitle': 'Algunas preguntas sobre mi enfoque, herramientas y desarrollo profesional.',
+  'faq.q1': '¿Cuál es mi enfoque principal dentro del marketing?',
+  'faq.a1':
+    'La sinergia entre las relaciones públicas, las ventas y la producción de contenido digital apoyada por herramientas de Inteligencia Artificial.',
+  'faq.q2': '¿Cómo está estructurado mi flujo de trabajo técnico?',
+  'faq.a2':
+    'Utilizo Meta Business Suite para la gestión y pauta digital, Canva y CapCut para la producción visual y audiovisual, y herramientas de Inteligencia Artificial para apoyar la creatividad y optimizar diferentes procesos de trabajo.',
+  'faq.q3': '¿Cuál ha sido uno de los principales aprendizajes de mi experiencia profesional?',
+  'faq.a3':
+    'Desarrollar la capacidad de realizar prospección, adaptarme a los requerimientos de diferentes proyectos y participar en la configuración y ejecución de campañas con objetivos definidos.',
+  'faq.q4': '¿Disponibilidad para nuevos retos?',
+  'faq.a4':
+    'Estoy abierto a colaborar en proyectos y equipos donde pueda continuar desarrollando experiencia en Relaciones Públicas, Ventas, Branding, Marketing Digital y producción de contenido.',
+
   // Contact
-  'contact.micro': '06 / CONTACTO',
+  'contact.micro': '08 / CONTACTO',
   'contact.title': 'Conectemos tu proyecto con la audiencia correcta.',
   'contact.text': 'Si tienes una idea, marca o proyecto que necesita comunicación, posicionamiento o una estrategia digital, escríbeme.',
+  'contact.cta': 'HABLEMOS',
   'contact.emailLabel': 'Email',
   'contact.whatsappLabel': 'WhatsApp',
   'contact.linkedinLabel': 'LinkedIn',
@@ -137,6 +156,7 @@ const en = {
   'nav.capabilities': 'Focus',
   'nav.services': 'Tools',
   'nav.cv': 'CV',
+  'nav.faq': 'FAQ',
   'nav.contact': 'Contact',
   'nav.available': 'AVAILABLE FOR PROJECTS',
   'nav.themeToLight': 'Switch to light mode',
@@ -171,6 +191,10 @@ const en = {
   'skills.micro': '02 / SKILLS',
   'skills.title': 'Core Competencies',
   'skills.subtitle': 'Four areas where I can add value from day one.',
+  'skills.branding.label': 'BRANDING',
+  'skills.relations.label': 'PUBLIC RELATIONS',
+  'skills.ads.label': 'PAID MEDIA',
+  'skills.multimedia.label': 'AI + MULTIMEDIA',
   'skills.branding.title': 'Brand Development',
   'skills.branding.description':
     'Conceptualization of visual identity, logo design and structuring of corporate identity manuals.',
@@ -216,11 +240,29 @@ const en = {
   'cv.preview': 'Preview',
   'cv.previewAlt': "Curriculum of Leonardo Emmanuel Ortega Nava",
 
+  // FAQ
+  'faq.micro': '07 / FAQ',
+  'faq.title': 'Frequently Asked Questions',
+  'faq.subtitle': 'A few questions about my approach, tools and professional development.',
+  'faq.q1': 'What is my main focus within marketing?',
+  'faq.a1':
+    'The synergy between public relations, sales and digital content production supported by Artificial Intelligence tools.',
+  'faq.q2': 'How is my technical workflow structured?',
+  'faq.a2':
+    'I use Meta Business Suite for digital management and paid media, Canva and CapCut for visual and audiovisual production, and Artificial Intelligence tools to support creativity and optimize different work processes.',
+  'faq.q3': 'What has been one of the main lessons from my professional experience?',
+  'faq.a3':
+    'Developing the ability to prospect, adapt to the requirements of different projects and take part in setting up and running campaigns with defined objectives.',
+  'faq.q4': 'Availability for new challenges?',
+  'faq.a4':
+    'I am open to collaborating on projects and teams where I can keep building experience in Public Relations, Sales, Branding, Digital Marketing and content production.',
+
   // Contact
-  'contact.micro': '06 / CONTACT',
+  'contact.micro': '08 / CONTACT',
   'contact.title': "Let's connect your project with the right audience.",
   'contact.text':
     'If you have an idea, brand or project that needs communication, positioning or a digital strategy, write to me.',
+  'contact.cta': "LET'S TALK",
   'contact.emailLabel': 'Email',
   'contact.whatsappLabel': 'WhatsApp',
   'contact.linkedinLabel': 'LinkedIn',

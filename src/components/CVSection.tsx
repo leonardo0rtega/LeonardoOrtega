@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Download, Expand, X } from 'lucide-react'
+import { ArrowRight, Download, Expand, X } from 'lucide-react'
 import { useApp } from '../context/AppContext.tsx'
 import { site } from '../config/site'
-import SectionShell from './SectionShell'
 
 export default function CVSection() {
   const { t } = useApp()
   const [open, setOpen] = useState(false)
+  const [index, label] = t('cv.micro')
+    .split('/')
+    .map((part) => part.trim())
 
   useEffect(() => {
     if (!open) return
@@ -23,63 +25,81 @@ export default function CVSection() {
   }, [open])
 
   return (
-    <SectionShell
+    <section
       id="cv"
-      tone="surface"
-      micro={t('cv.micro')}
-      title={t('cv.title')}
-      titleId="cv-title"
+      className="relative border-b border-[var(--border)] bg-surface px-6 py-14 md:py-16"
+      aria-labelledby="cv-title"
     >
-      <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-        <div>
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="max-w-xl text-lg leading-relaxed text-secondary"
-          >
-            {t('cv.text')}
-          </motion.p>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="mx-auto max-w-[1400px] border border-[var(--border)] bg-bg"
+      >
+        <div className="grid items-center gap-8 p-6 sm:p-9 lg:grid-cols-[1fr_auto_200px] lg:gap-12">
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center bg-primary font-mono text-[10px] font-bold text-bg">
+                {index}
+              </span>
+              <span className="font-mono text-[11px] font-bold uppercase tracking-[0.3em] text-secondary">
+                {label}
+              </span>
+            </div>
 
-          <motion.a
-            href={site.cv}
-            download
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="mt-6 inline-flex items-center gap-2 border border-accent bg-transparent px-5 py-3 text-xs font-semibold uppercase tracking-widest text-accent transition-colors hover:bg-accent hover:text-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-2"
+            <h2
+              id="cv-title"
+              className="mt-4 max-w-xl font-display text-2xl font-semibold leading-[1.1] tracking-tight text-primary sm:text-3xl lg:text-[2.25rem]"
+            >
+              {t('cv.title')}
+            </h2>
+
+            <p className="mt-3 max-w-lg text-[15px] leading-relaxed text-secondary">
+              {t('cv.text')}
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
+            <button
+              type="button"
+              onClick={() => setOpen(true)}
+              className="group inline-flex items-center justify-center gap-2 bg-accent px-6 py-3 text-sm font-semibold text-primary transition-transform hover:-translate-y-0.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-2"
+            >
+              {t('cv.button')}
+              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+            </button>
+
+            <a
+              href={site.cv}
+              download
+              className="inline-flex items-center justify-center gap-2 border border-[var(--border)] px-6 py-3 text-sm font-medium text-primary transition-colors hover:border-accent hover:text-accent focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-2"
+            >
+              <Download size={16} />
+              {t('cv.download')}
+            </a>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            aria-label={t('cv.button')}
+            className="group relative hidden overflow-hidden border border-[var(--border)] bg-surface-2 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:block"
           >
-            <Download size={16} />
-            {t('cv.download')}
-          </motion.a>
+            <img
+              src={site.cv}
+              alt={t('cv.previewAlt')}
+              loading="lazy"
+              decoding="async"
+              className="h-[150px] w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.03]"
+            />
+            <span className="pointer-events-none absolute bottom-2 left-2 inline-flex items-center gap-1.5 border border-accent/40 bg-bg/80 px-2 py-1 font-mono text-[9px] uppercase tracking-wider text-accent backdrop-blur-sm">
+              <Expand size={10} />
+              {t('cv.preview')}
+            </span>
+          </button>
         </div>
-
-        <motion.button
-          type="button"
-          onClick={() => setOpen(true)}
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.15 }}
-          aria-label={t('cv.button')}
-          className="group relative block w-full max-w-md overflow-hidden border border-[var(--border)] bg-surface-2 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-        >
-          <img
-            src={site.cv}
-            alt={t('cv.previewAlt')}
-            loading="lazy"
-            decoding="async"
-            className="h-[240px] w-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
-          />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[var(--bg)] via-transparent to-transparent" />
-          <span className="pointer-events-none absolute bottom-3 left-3 inline-flex items-center gap-1.5 border border-accent/40 bg-bg/80 px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-accent backdrop-blur-sm">
-            <Expand size={10} />
-            {t('cv.preview')}
-          </span>
-        </motion.button>
-      </div>
+      </motion.div>
 
       <AnimatePresence>
         {open && (
@@ -135,6 +155,6 @@ export default function CVSection() {
           </motion.div>
         )}
       </AnimatePresence>
-    </SectionShell>
+    </section>
   )
 }

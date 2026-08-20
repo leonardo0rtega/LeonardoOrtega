@@ -3,20 +3,24 @@ import { ArrowRight, TrendingUp, Target, Palette, BrainCircuit } from 'lucide-re
 import { useApp } from '../context/AppContext.tsx'
 import { site } from '../config/site'
 
+const tagIcons = [Target, TrendingUp, Palette, BrainCircuit]
 
 export default function Hero() {
   const { t } = useApp()
-  const tags = t('hero.tags').split(',')
+  const tags = t('hero.tags')
+    .split(',')
+    .map((tag) => tag.trim())
 
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] overflow-hidden border-b border-[var(--border)] bg-bg px-6 pb-24 pt-32 md:pb-28 md:pt-40"
+      className="relative overflow-hidden border-b border-[var(--border)] bg-bg px-6 pb-12 pt-28 md:pb-14 md:pt-32"
       aria-label={t('nav.home')}
     >
-      <div className="relative mx-auto grid max-w-[1400px] gap-14 lg:grid-cols-[58%_42%] lg:items-center lg:gap-16">
-        <div className="z-10 flex flex-col gap-9">
-          <span className="inline-flex w-fit items-center gap-2 border border-[var(--border)] bg-surface px-3 py-1.5 font-mono text-xs font-semibold uppercase tracking-[0.2em] text-secondary">
+      <div className="relative mx-auto max-w-[1400px]">
+        <div className="grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-14 xl:gap-20">
+        <div className="z-10 flex flex-col gap-7 lg:col-span-7">
+          <span className="inline-flex w-fit items-center gap-2 border border-[var(--border)] bg-surface px-3 py-1.5 font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary">
             <TrendingUp size={14} className="text-accent" />
             {t('hero.micro')}
           </span>
@@ -32,7 +36,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="font-display text-5xl font-semibold leading-[1.02] tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-[5.25rem]"
+              className="font-display text-[2.75rem] font-semibold leading-[1.02] tracking-tight text-primary sm:text-6xl lg:text-[4.5rem] xl:text-[5rem]"
             >
               Leonardo Emmanuel
               <br />
@@ -42,7 +46,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="mt-6 max-w-xl font-mono text-sm font-bold uppercase tracking-[0.25em] text-primary sm:text-base"
+              className="mt-5 max-w-xl font-mono text-xs font-bold uppercase tracking-[0.25em] text-primary sm:text-sm"
             >
               {t('hero.role')}
             </motion.p>
@@ -69,7 +73,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-wrap items-center gap-4"
+            className="flex flex-wrap items-center gap-3"
           >
             <a
               href={site.cv}
@@ -88,34 +92,15 @@ export default function Hero() {
             </a>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.55 }}
-            className="flex flex-wrap gap-2 pt-1"
-          >
-            {tags.map((tag) => (
-              <span
-                key={tag}
-                className="inline-flex items-center gap-1 border border-[var(--border)] bg-surface px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-secondary"
-              >
-                {tag === 'RELACIONES PÚBLICAS' && <Target size={12} className="text-accent" />}
-                {tag === 'VENTAS' && <TrendingUp size={12} className="text-accent" />}
-                {tag === 'BRANDING' && <Palette size={12} className="text-accent" />}
-                {tag === 'IA' && <BrainCircuit size={12} className="text-accent" />}
-                {tag}
-              </span>
-            ))}
-          </motion.div>
         </div>
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="relative z-10 mt-4 flex justify-center lg:mt-0"
+          className="relative z-10 flex justify-center lg:col-span-5 lg:justify-end"
         >
-          <div className="relative aspect-[4/5] w-full max-w-[340px] overflow-hidden border border-[var(--border)] bg-surface-2 lg:max-w-[440px]">
+          <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden border border-[var(--border)] bg-surface-2 sm:max-w-[360px] lg:max-w-none">
             <motion.img
               src={site.photo}
               alt={site.name}
@@ -143,9 +128,34 @@ export default function Hero() {
             <div className="pointer-events-none absolute -bottom-px -right-px h-6 w-6 border-b-2 border-r-2 border-accent" />
           </div>
         </motion.div>
-      </div>
+        </div>
 
-      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-[var(--border)]" />
+        {/* Banda de áreas a ancho completo: conecta el hero con el resto de la página */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.55 }}
+          className="mt-12 grid grid-cols-2 border-t border-[var(--border)] sm:grid-cols-4 md:mt-14"
+        >
+          {tags.map((tag, i) => {
+            const Icon = tagIcons[i] ?? Target
+            return (
+              <div
+                key={tag}
+                className="group flex items-center gap-3 border-b border-[var(--border)] py-5 pr-4 sm:border-b-0 sm:[&:not(:first-child)]:border-l sm:[&:not(:first-child)]:pl-6"
+              >
+                <Icon
+                  size={16}
+                  className="shrink-0 text-accent transition-transform duration-300 group-hover:scale-110"
+                />
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-secondary transition-colors duration-300 group-hover:text-primary sm:text-[11px]">
+                  {tag}
+                </span>
+              </div>
+            )
+          })}
+        </motion.div>
+      </div>
     </section>
   )
 }

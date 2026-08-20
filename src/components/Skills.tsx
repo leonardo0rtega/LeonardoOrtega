@@ -21,7 +21,7 @@ export default function Skills() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="border-t border-[var(--border)]"
+        className="grid grid-cols-1 border-l border-t border-[var(--border)] md:grid-cols-2"
       >
         {skills.map((item) => {
           const Icon = item.icon
@@ -29,32 +29,37 @@ export default function Skills() {
             <motion.article
               key={item.id}
               variants={staggerItem}
-              className="group relative border-b border-[var(--border)] py-8 md:py-10"
+              className="group relative flex flex-col border-b border-r border-[var(--border)] p-6 transition-colors duration-300 hover:bg-bg sm:p-8 lg:p-10"
             >
-              <span className="pointer-events-none absolute bottom-0 left-0 h-px w-0 bg-accent transition-all duration-500 ease-out group-hover:w-full" />
+              <span className="pointer-events-none absolute left-0 top-0 h-0.5 w-0 bg-accent transition-all duration-500 ease-out group-hover:w-full" />
 
-              <div className="flex items-start gap-5 sm:gap-8">
-                <div className="flex shrink-0 items-center gap-4 pt-1">
-                  <span className="font-mono text-sm font-bold text-secondary transition-colors duration-300 group-hover:text-accent">
-                    {item.number}
-                  </span>
-                  <Icon
-                    size={22}
-                    className="text-secondary transition-all duration-300 group-hover:scale-110 group-hover:text-accent"
-                  />
-                </div>
+              {/* Categoría a la izquierda y número decorativo a la derecha: nunca comparten posición con el icono */}
+              <div className="flex items-start justify-between gap-6">
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-accent">
+                  {t(`skills.${item.id}.label`)}
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="-mt-2 select-none font-display text-4xl font-semibold leading-none text-primary/[0.12] transition-colors duration-500 group-hover:text-accent/25 sm:text-5xl"
+                >
+                  {item.number}
+                </span>
+              </div>
 
-                <div className="min-w-0">
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent">
-                    {t(`skills.${item.id}.label`)}
-                  </span>
-                  <h3 className="mt-2 font-display text-2xl font-semibold leading-tight tracking-tight text-primary sm:text-3xl">
-                    {t(`skills.${item.id}.title`)}
-                  </h3>
-                  <p className="mt-4 max-w-2xl text-base leading-relaxed text-secondary sm:text-lg">
-                    {t(`skills.${item.id}.description`)}
-                  </p>
-                </div>
+              <span className="mt-5 flex h-10 w-10 items-center justify-center border border-[var(--border)] text-secondary transition-all duration-300 group-hover:border-accent group-hover:text-accent">
+                <Icon size={20} />
+              </span>
+
+              <h3 className="mt-5 font-display text-2xl font-semibold leading-tight tracking-tight text-primary sm:text-[1.75rem]">
+                {t(`skills.${item.id}.title`)}
+              </h3>
+
+              <p className="mt-3 text-[15px] leading-relaxed text-secondary sm:text-base">
+                {t(`skills.${item.id}.description`)}
+              </p>
+
+              <div className="mt-auto pt-6">
+                <span className="block h-px w-8 bg-[var(--border)] transition-all duration-500 ease-out group-hover:w-16 group-hover:bg-accent" />
               </div>
             </motion.article>
           )

@@ -3,7 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, Sun, Moon } from 'lucide-react'
 import { useApp } from '../context/AppContext.tsx'
 
-const SECTIONS = ['hero', 'about', 'skills', 'experience', 'capabilities', 'services', 'cv']
+const SECTIONS = [
+  'hero',
+  'about',
+  'skills',
+  'experience',
+  'capabilities',
+  'services',
+  'cv',
+  'faq',
+  'contact',
+]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -45,6 +55,8 @@ export default function Navbar() {
     { label: t('nav.capabilities'), href: '#capabilities' },
     { label: t('nav.services'), href: '#services' },
     { label: t('nav.cv'), href: '#cv' },
+    { label: t('nav.faq'), href: '#faq' },
+    { label: t('nav.contact'), href: '#contact' },
   ]
 
   return (

@@ -10,7 +10,6 @@ export default function Services() {
   return (
     <SectionShell
       id="services"
-      tone="surface"
       micro={t('services.micro')}
       title={t('services.title')}
       subtitle={t('services.subtitle')}
@@ -21,7 +20,7 @@ export default function Services() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="border-t border-[var(--border)]"
+        className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5 lg:gap-5"
       >
         {services.map((service) => {
           const Icon = service.icon
@@ -29,37 +28,34 @@ export default function Services() {
             <motion.article
               key={service.id}
               variants={staggerItem}
-              className="group relative flex flex-col gap-x-8 gap-y-4 border-b border-[var(--border)] py-8 sm:flex-row sm:items-start"
+              className="group relative flex flex-col border border-[var(--border)] bg-bg p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:bg-surface sm:p-6"
             >
-              <span className="pointer-events-none absolute bottom-0 left-0 h-px w-0 bg-accent transition-all duration-500 ease-out group-hover:w-full" />
-
-              <div className="flex shrink-0 items-center gap-4 sm:w-44">
-                <span className="font-mono text-xs font-bold text-secondary transition-colors duration-300 group-hover:text-accent">
+              <div className="flex items-center justify-between gap-3 border-b border-[var(--border)] pb-4 transition-colors duration-300 group-hover:border-accent/30">
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center border border-[var(--border)] text-primary transition-all duration-300 group-hover:border-accent group-hover:text-accent">
+                  <Icon size={18} />
+                </span>
+                <span className="font-mono text-[10px] font-bold tracking-[0.15em] text-secondary/70 transition-colors duration-300 group-hover:text-accent">
                   {service.number}
                 </span>
-                <Icon
-                  size={22}
-                  className="text-primary transition-all duration-300 group-hover:scale-110 group-hover:text-accent"
-                />
-                <h3 className="font-display text-lg font-semibold leading-tight tracking-tight text-primary sm:text-xl">
-                  {service.title}
-                </h3>
               </div>
 
-              <div className="min-w-0 flex-1">
-                <p className="text-base leading-relaxed text-secondary">
-                  {service.description}
-                </p>
-                <div className="mt-3 flex flex-wrap gap-x-3 gap-y-2">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="font-mono text-[10px] font-semibold uppercase tracking-[0.15em] text-secondary/70 transition-colors duration-300 group-hover:text-accent"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              <h3 className="mt-5 font-display text-base font-semibold leading-tight tracking-tight text-primary sm:text-lg">
+                {service.title}
+              </h3>
+
+              <p className="mt-3 text-[13px] leading-relaxed text-secondary">
+                {service.description}
+              </p>
+
+              <div className="mt-auto flex flex-wrap gap-1.5 pt-5">
+                {service.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="bg-surface-2 px-1.5 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-[0.1em] text-secondary transition-colors duration-300 group-hover:text-accent"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </motion.article>
           )

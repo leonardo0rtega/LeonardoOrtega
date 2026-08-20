@@ -42,4 +42,7 @@ declare module 'lucide-react' {
   export const Sparkles: LucideIcon
   export const Search: LucideIcon
   export const Compass: LucideIcon
+  export const Plus: LucideIcon
+  export const Minus: LucideIcon
+  export const HelpCircle: LucideIcon
 }

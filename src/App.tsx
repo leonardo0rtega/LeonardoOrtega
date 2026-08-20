@@ -9,6 +9,8 @@ import Experience from './components/Experience'
 import Capabilities from './components/Capabilities'
 import Services from './components/Services'
 import CVSection from './components/CVSection'
+import FAQ from './components/FAQ'
+import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollProgress from './components/ScrollProgress'
 
@@ -24,11 +26,13 @@ export default function App() {
       <main>
         <Hero />
         <About />
-        <Experience />
         <Skills />
+        <Experience />
         <Capabilities />
         <Services />
         <CVSection />
+        <FAQ />
+        <Contact />
       </main>
       <Footer />
     </div>
