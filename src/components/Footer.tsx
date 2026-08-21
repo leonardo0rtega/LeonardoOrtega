@@ -93,7 +93,12 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col items-start justify-between gap-3 border-t border-[var(--border)] pt-5 sm:flex-row sm:items-center">
-          <p className="text-xs text-secondary">{t('footer.copyright')}</p>
+          <div className="flex flex-col gap-1">
+            <p className="text-xs text-secondary">{t('footer.copyright')}</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-secondary/70">
+              {t('footer.developedBy')}
+            </p>
+          </div>
           <a
             href="#hero"
             className="font-mono text-[10px] font-bold uppercase tracking-widest text-secondary transition-colors hover:text-accent"

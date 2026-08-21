@@ -133,6 +133,7 @@ const es = {
   'footer.ctaDescription':
     'Estoy abierto a colaborar en proyectos de comunicación, branding, relaciones públicas y estrategia digital.',
   'footer.ctaButton': 'HABLEMOS',
+  'footer.developedBy': 'Desarrollado por Albeh Global',
   'footer.navLabel': 'MENÚ',
   'footer.emailLabel': 'EMAIL',
   'footer.socialLabel': 'SOCIAL',
@@ -276,6 +277,7 @@ const en = {
   'footer.ctaDescription':
     'I am open to collaborating on communication, branding, public relations and digital strategy projects.',
   'footer.ctaButton': 'LET\'S TALK',
+  'footer.developedBy': 'Developed by Albeh Global',
   'footer.navLabel': 'MENU',
   'footer.emailLabel': 'EMAIL',
   'footer.socialLabel': 'SOCIAL',
